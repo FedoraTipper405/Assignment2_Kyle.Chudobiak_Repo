@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class MovementInputer : MonoBehaviour, IMovementInput
 {
-    public float Horizontal { get; private set; }
-    public float Vertical { get; private set; }
+    public float HorizontalInput { get; private set; }
+    public float VerticalInput { get; private set; }
 
     public void Update()
     {
         GetInput();
     }
+
+    //Sets the Inputs using unity legacy inputs.
     public void GetInput()
     {
-        Horizontal = Input.GetAxisRaw("Horizontal");
-        Vertical = Input.GetAxisRaw("Vertical");
+        HorizontalInput = Input.GetAxisRaw("Horizontal");
+        VerticalInput = Input.GetAxisRaw("Vertical");
     }
 }

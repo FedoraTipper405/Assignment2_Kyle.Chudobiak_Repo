@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f825be51d6679448bd63d521238771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactableObjectData: {fileID: 11400000, guid: 27c20078574332f42a8bc10487b011ca, type: 2}
+  InteractableObjectData: {fileID: 11400000, guid: 27c20078574332f42a8bc10487b011ca, type: 2}
   HeartGrabbed:
     m_PersistentCalls:
       m_Calls:

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e46410b6273b34389ef55272da7036, type: 3}
   m_Name: HeartData
   m_EditorClassIdentifier: 
-  _objectValue: 2
+  ObjectValue: 2

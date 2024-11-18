@@ -209,13 +209,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5694050391252528898, guid: dcb5250fc97b9b946a346d2a051f7416, type: 3}
+      propertyPath: InteractableObjectData
+      value: 
+      objectReference: {fileID: 11400000, guid: b5a9651f9be99f14a80a13652643b3fa, type: 2}
     - target: {fileID: 5838571628835218520, guid: dcb5250fc97b9b946a346d2a051f7416, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.908551
       objectReference: {fileID: 0}
     - target: {fileID: 5838571628835218520, guid: dcb5250fc97b9b946a346d2a051f7416, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.15
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 5838571628835218520, guid: dcb5250fc97b9b946a346d2a051f7416, type: 3}
       propertyPath: m_LocalPosition.z
@@ -253,6 +257,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpikeTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 7397477273926544381, guid: dcb5250fc97b9b946a346d2a051f7416, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4759163544955009852, guid: 1a3ff947e82a06442943b6091919f0e1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -480,6 +488,7 @@ GameObject:
   - component: {fileID: 700948067}
   - component: {fileID: 700948073}
   - component: {fileID: 700948074}
+  - component: {fileID: 700948075}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -499,9 +508,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc61dfa7d389e6e47bc1542860d2c4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
+  PlayerSpeed: 200
   rb: {fileID: 700948072}
-  _camera: {fileID: 963194228}
+  ThirdPersonCamera: {fileID: 963194228}
 --- !u!136 &700948068
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -641,6 +650,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef4ab8b596e7774daa6f0cb70643640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &700948075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700948066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569ecab5dbde52e4b98c92a07ac805df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +764,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 881267287593076245, guid: b80e6f4fb41b05244ab76f87173bb723, type: 3}
+      propertyPath: InteractableObjectData
+      value: 
+      objectReference: {fileID: 11400000, guid: bf36585aa31a669468d58d1438495521, type: 2}
     - target: {fileID: 3829907545975411706, guid: b80e6f4fb41b05244ab76f87173bb723, type: 3}
       propertyPath: m_Name
       value: Coin
@@ -1107,7 +1132,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9729477cb2a516949af3f81e1f27fb9a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1147,7 +1172,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1323,7 +1348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9aab19ad2cc9a409c1bbd0aa00c99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
+  Score: 0
 --- !u!1 &1210894722
 GameObject:
   m_ObjectHideFlags: 3
@@ -1462,7 +1487,7 @@ MonoBehaviour:
   m_YAxis:
     Value: 0.5
     m_SpeedMode: 0
-    m_MaxSpeed: 2
+    m_MaxSpeed: 6
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -1486,7 +1511,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 300
+    m_MaxSpeed: 350
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
@@ -1587,7 +1612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db586a7523d3bdf409b6bd5956172ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  PlayerHealth: 0
 --- !u!1001 &1798952840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1596,6 +1621,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1971933919493989863, guid: 2483807b36e01ae4db99e6f27a6cdfb0, type: 3}
+      propertyPath: InteractableObjectData
+      value: 
+      objectReference: {fileID: 11400000, guid: 27c20078574332f42a8bc10487b011ca, type: 2}
     - target: {fileID: 8349762364427007777, guid: 2483807b36e01ae4db99e6f27a6cdfb0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.2652957
