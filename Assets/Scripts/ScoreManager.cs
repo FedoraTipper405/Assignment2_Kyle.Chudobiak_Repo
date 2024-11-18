@@ -19,6 +19,6 @@ public class ScoreManager : MonoBehaviour
     public void AddPoint(float value)
     {
         score += value;
-        Debug.Log(score);
+        Debug.Log("Current Score: " + score);
     }
 }

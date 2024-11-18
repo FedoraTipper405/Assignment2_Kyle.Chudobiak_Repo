@@ -19,11 +19,11 @@ public class HealthManager : MonoBehaviour
     public void AddHealth(float value)
     {
         health += value;
-        Debug.Log(health);
+        Debug.Log("Current Health: " + health);
     }
     public void ReduceHealth(float value)
     {
         health -= value;
-        Debug.Log(health);
+        Debug.Log("Current Health: " + health);
     }
 }

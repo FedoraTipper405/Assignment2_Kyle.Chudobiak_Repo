@@ -4,21 +4,33 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float horizontalInput;
-    private float verticalInput;
-    [SerializeField] public float speedMultiplier;
+    [SerializeField] public float speed;
+    [SerializeField] private Rigidbody rb;
+
+    private IMovementInput movementInput = null;
+
+    public Transform _camera;
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
-   
-    void Update()
+    private void Awake()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        movementInput = GetComponent<IMovementInput>();
+    }
 
-        transform.Translate(Vector3.forward * Time.deltaTime * verticalInput * speedMultiplier);
-        transform.Translate(Vector3.right * Time.deltaTime * horizontalInput * speedMultiplier);
+    void FixedUpdate()
+    {
+        var horizontalInput = movementInput.Horizontal;
+        var verticalInput = movementInput.Vertical;
+
+        Vector3 direction = new Vector3(horizontalInput, 0, verticalInput).normalized;
+
+       
+        float downwardVelocity = rb.velocity.y;
+        rb.velocity = (direction.x * _camera.right + direction.z * _camera.forward).normalized * speed * Time.deltaTime;
+        rb.velocity = new Vector3(rb.velocity.x, downwardVelocity, rb.velocity.z);
     }
 }
